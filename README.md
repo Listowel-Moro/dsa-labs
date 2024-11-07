@@ -11,6 +11,7 @@ This repository contains my weekly Java lab assignments. Each lab is designed to
 ## Lab Descriptions
 
 ### Matrix Multiplication
+[See file](matrix-multiplication\MatrixMultiplication.java)
 This lab involves implementing matrix multiplication in Java. Given two matrices, the code calculates their product if their dimensions are compatible (i.e., columns of the first matrix match the rows of the second).
 
 **Key concepts covered:**
@@ -19,6 +20,7 @@ This lab involves implementing matrix multiplication in Java. Given two matrices
 - Basic matrix operations
 
 ### Statistics of Grades
+[See file](matrix-multiplication\StatisticsOfGrades.java)
 In this lab, I worked on calculating statistics of student grades. The program:
 1. Finds the maximum and minimum grades.
 2. Calculates the average grade.
