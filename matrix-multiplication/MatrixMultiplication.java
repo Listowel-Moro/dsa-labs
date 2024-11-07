@@ -1,37 +1,37 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-class MatrixMult{
+class MatrixMultiplication{
     // Global scanner to be used by all methods
-    private static final Scanner sc = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args){
         int numRowsA, numColsA, numRowsB, numColsB;
 
         // Take dimensions of both matrices from user
-        int[] dims = takeDimensions();
-        numRowsA = dims[0];
-        numColsA = dims[1];
-        numRowsB = dims[2];
-        numColsB = dims[3];
+        int[] dimensions = takeMatrixDimensions();
+        numRowsA = dimensions[0];
+        numColsA = dimensions[1];
+        numRowsB = dimensions[2];
+        numColsB = dimensions[3];
 
         // Take matrix A input from user
         System.out.println("Enter the elements of matrix A below.");
-        int[][] matA = inputMatrix(numRowsA, numColsA);
+        int[][] matrixA = takeMatrixInput(numRowsA, numColsA);
 
         // Take matrix A input
         System.out.println("Enter the elements of matrix B below.");
-        int[][] matB = inputMatrix(numRowsB, numColsB);
+        int[][] matrixB = takeMatrixInput(numRowsB, numColsB);
 
         // Perform matrix multiplication
-        int [][] product = mult(matA, numRowsA, numColsA, matB, numRowsB, numColsB);
+        int [][] product = multiplyMatrix(matrixA, numRowsA, numColsA, matrixB, numRowsB, numColsB);
 
         // Display result matrix in a table format
         System.out.println();
         System.out.println("Matrix A");
-        printMatrix(matA);
+        printMatrix(matrixA);
         System.out.println("Matrix B");
-        printMatrix(matB);
+        printMatrix(matrixB);
         System.out.println();
         System.out.println("Product Matrix");
 
@@ -40,31 +40,31 @@ class MatrixMult{
 
     }
 
-    public static int[] takeDimensions(){
+    public static int[] takeMatrixDimensions(){
         /**
          * A function to take the dimensions of the two matrices
          * Returns the dimensions as an array of integers
          */
-        int[] dims = new int[4];
+        int[] dimensions = new int[4];
 
         //Take Dimensions of matrix A
         System.out.println("Please enter the number of rows of matrix A: ");
-        dims[0] = sc.nextInt();
+        dimensions[0] = scanner.nextInt();
 
         System.out.println("Please enter the number of columns of matrix A: ");
-        dims[1] = sc.nextInt();
+        dimensions[1] = scanner.nextInt();
 
         // Take Dimensions of matrix B
         System.out.println("Please enter the number of rows of matrix B: ");
-        dims[2] = sc.nextInt();
+        dimensions[2] = scanner.nextInt();
 
         System.out.println("Please enter the number of columns of matrix B: ");
-        dims[3] = sc.nextInt();
+        dimensions[3] = scanner.nextInt();
 
-        return dims;
+        return dimensions;
     };
 
-    public static int[][] inputMatrix(int numRows, int numCols){
+    public static int[][] takeMatrixInput(int numRows, int numCols){
         /**
          * Function to receive matrix input from user
          * Takes the number of rows and cols and returns the received matrix
@@ -74,14 +74,14 @@ class MatrixMult{
         for (int i = 0; i < numRows; i++){
             for (int j = 0; j < numCols; j++){
                 System.out.println("Enter matrix[" + i + "][" + j + "]");
-                matrix[i][j] = sc.nextInt();
+                matrix[i][j] = scanner.nextInt();
             }
         }
 
         return matrix;
     }
 
-    public static int[][] mult(int[][] matA, int numRowsA, int numColsA, int[][] matB, int numRowsB, int numColsB){
+    public static int[][] multiplyMatrix(int[][] matrixA, int numRowsA, int numColsA, int[][] matrixB, int numRowsB, int numColsB){
         /**
          * Function to multiply two matrices
          * Takes in the two matrices and their dimensions and returns their product
@@ -97,20 +97,20 @@ class MatrixMult{
 
         for (int i = 0; i < numRowsA; i++){
             //Extract matrix A's row
-            int[] row = matA[i];
+            int[] row = matrixA[i];
             for (int j = 0; j < numColsB; j++){
                 // Extract matrix B's col
                 int[] col = new int[numRowsB];
                 for (int k = 0; k < numRowsB; k++){
-                    col[k] = matB[k][j];
+                    col[k] = matrixB[k][j];
                 }
                 // Multiply mat A row by mat B col
-                int cur = 0;
+                int productElement = 0;
                 for (int l = 0; l < numRowsB; l++){
-                    cur += row[l] * col[l];
+                    productElement += row[l] * col[l];
                 }
 
-                product[i][j] = cur;
+                product[i][j] = productElement;
             }
         }
 

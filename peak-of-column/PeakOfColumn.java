@@ -1,21 +1,20 @@
 import java.util.Scanner;
 import java.util.Arrays;
-import java.util.Collections;
 
 class PeakOfColumn{
     // declare a global scanner to take all inputs
-    private static final Scanner sc = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args){
         // Take dimensions of matrix from user
         System.out.println("Please enter the number of rows of the matrix: ");
-        int numRows = sc.nextInt();
+        int numRows = scanner.nextInt();
 
         System.out.println("Please enter the number of columns of the matrix: ");
-        int numCols = sc.nextInt();
+        int numCols = scanner.nextInt();
 
         // call method to take matrix input from user
-        int[][] matrix = takeInput(numRows, numCols);
+        int[][] matrix = takeMatrixInput(numRows, numCols);
         //int[][] testMatrix = new int[][]{{12, 2, 4}, {17, 10, 1}, {92, 80, 79}};
 
         // call method to find the peak columns
@@ -24,7 +23,7 @@ class PeakOfColumn{
     }
 
 
-    public static int[][] takeInput(int numRows, int numCols){
+    public static int[][] takeMatrixInput(int numRows, int numCols){
         /**
          * method to take matrix input
          * returns the received matrix
@@ -35,7 +34,7 @@ class PeakOfColumn{
         for (int i = 0; i < numRows; i++){
             for (int j = 0; j < numCols; j++){
                 System.out.print("Enter matrix[" + i + "][" + j + "]: ");
-                matrix[i][j] = sc.nextInt();
+                matrix[i][j] = scanner.nextInt();
             }
         }
 
@@ -67,9 +66,9 @@ class PeakOfColumn{
             }
 
             for (int j = 0; j < numCols; j++){
-                int tmp = matrix[i][j];
+                int tempElement = matrix[i][j];
                 // Check for peakness in row
-                if (tmp < maxInRow){
+                if (tempElement < maxInRow){
                     continue;
                 }
 
@@ -87,12 +86,12 @@ class PeakOfColumn{
                     }
                 }
                 
-                if (tmp > minInCol){
+                if (tempElement > minInCol){
                     continue;
                 }
 
                 System.out.println();
-                System.out.println("A (" + (i + 1) + "," + (j + 1) + ") = " + tmp);
+                System.out.println("A (" + (i + 1) + "," + (j + 1) + ") = " + tempElement);
                 System.out.println();
             }
         }

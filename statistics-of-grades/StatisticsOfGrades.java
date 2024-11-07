@@ -1,23 +1,24 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-class StatsOfGrades {
-    private static final Scanner sc = new Scanner(System.in);
+class StatisticsOfGrades {
+    private static final Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args){
         int N;
 
         System.out.println("Please enter the number of students: ");
-        N = sc.nextInt();
+        N = scanner.nextInt();
 
         //Call method to take int student grades
         int[] studentGrades = takeGrades(N);
 
         //Call method to calculate min, max and average grades
-        int[] minMaxAve = findMinMaxAve(studentGrades, N);
-        int minGrade = minMaxAve[0];
-        int maxGrade = minMaxAve[1];
-        double totalsum = minMaxAve[2];
-        double aveGrade = totalsum / N;
+        int[] minMaxAverage = findMinMaxAverage(studentGrades, N);
+        int minGrade = minMaxAverage[0];
+        int maxGrade = minMaxAverage[1];
+        double totalsum = minMaxAverage[2];
+        double averageGrade = totalsum / N;
 
         // Call method to compute stats of grade ranges
         int[] stats = computeStats(studentGrades);
@@ -27,7 +28,7 @@ class StatsOfGrades {
         System.out.println();
         System.out.println("Minimum grade: " + minGrade);
         System.out.println("Maximum grade: " + maxGrade);
-        System.out.println("Average grade: " + aveGrade);
+        System.out.println("Average grade: " + averageGrade);
        
         // Print the bars
         System.out.println();
@@ -46,13 +47,13 @@ class StatsOfGrades {
         System.out.println("Enter the grades of the student below: ");
         for (int i = 0; i < N; i++){
             System.out.println("Enter grades fo student "+ (i + 1));
-            studentGrades[i] = sc.nextInt();
+            studentGrades[i] = scanner.nextInt();
         }
 
         return studentGrades;
     }
 
-    public static int[] findMinMaxAve(int[] grades, int N){
+    public static int[] findMinMaxAverage(int[] grades, int N){
         /**
          * method to find the min, max and average grades
          * returns the min, max and totalSum of grades
@@ -109,24 +110,20 @@ class StatsOfGrades {
             }
         }
 
-        // Create an array based on the stats to determine when to start printing each bar
-        int[] curCondition = new int[5];
-        for (int i = 0; i < 5; i++){
-            curCondition[i] = tallestBar - stats[i];
-        }
+        int barDeterminant = tallestBar;// determines when a particular bar should start printing
 
         for (int i = 0; i < tallestBar; i++){
-            System.out.print((tallestBar - i) +  " >");
+            System.out.print((tallestBar - i) +  " >"); // prints the height of a bar
             for (int j = 0; j < 5; j++){
                 System.out.print("  ");
-                if (curCondition[j] <= 0){
+                if (stats[j] >= barDeterminant){
                     System.out.print("#######");
                 } else {
                     System.out.print("       ");
                 }
                 System.out.print("  ");
-                curCondition[j] -= 1;
             }
+            barDeterminant -= 1;
 
             System.out.println();
 
@@ -134,6 +131,5 @@ class StatsOfGrades {
 
         System.out.println("   +----------+---------+---------+-----------+-----------+");
         System.out.println("   I    0-20   I  21-40  I  41-60  I  61-80  I  81-100 I");
-        //System.out.println("   #######  #######  #######  #######  #######")
     }
 }

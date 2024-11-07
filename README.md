@@ -11,7 +11,7 @@ This repository contains my weekly Java lab assignments. Each lab is designed to
 ## Lab Descriptions
 
 ### Matrix Multiplication
-[See file](matrix-multiplication\MatrixMultiplication.java)
+[See file](matrix-multiplication/MatrixMultiplication.java)
 This lab involves implementing matrix multiplication in Java. Given two matrices, the code calculates their product if their dimensions are compatible (i.e., columns of the first matrix match the rows of the second).
 
 **Key concepts covered:**
