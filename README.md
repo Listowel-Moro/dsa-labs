@@ -6,6 +6,7 @@ This repository contains my weekly Java lab assignments. Each lab is designed to
 - [Lab Descriptions](#lab-descriptions)
   - [Matrix Multiplication](#matrix-multiplication)
   - [Statistics of Grades](#statistics-of-grades)
+  - [Peak Column](#peak-columns)
 
 
 ## Lab Descriptions
@@ -32,7 +33,7 @@ In this lab, I worked on calculating statistics of student grades. The program:
 - Simple data visualization (text-based bar graph)
 
 ### Peak Columns
-[See file](peak-of-column/PeakOfcolumn.java)<br/>
+[See file](peak-of-column/PeakOfColumn.java)<br/>
 In this lab, I worked on finding the peak columns (elements that are both a maximum in their row and a minimum in their column). The program:
 1. Takes a matrix input from the user.
 2. Finds the peak columns in the matrix.
