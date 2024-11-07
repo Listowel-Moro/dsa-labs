@@ -11,7 +11,7 @@ This repository contains my weekly Java lab assignments. Each lab is designed to
 ## Lab Descriptions
 
 ### Matrix Multiplication
-###### [See file](matrix-multiplication/MatrixMultiplication.java)
+[See file](matrix-multiplication/MatrixMultiplication.java) <br/>
 This lab involves implementing matrix multiplication in Java. Given two matrices, the code calculates their product if their dimensions are compatible (i.e., columns of the first matrix match the rows of the second).
 
 **Key concepts covered:**
@@ -20,7 +20,7 @@ This lab involves implementing matrix multiplication in Java. Given two matrices
 - Basic matrix operations
 
 ### Statistics of Grades
-###### [See file](matrix-multiplication/StatisticsOfGrades.java)
+[See file](statistics-of-grades/StatisticsOfGrades.java) <br/>
 In this lab, I worked on calculating statistics of student grades. The program:
 1. Finds the maximum and minimum grades.
 2. Calculates the average grade.
@@ -32,7 +32,7 @@ In this lab, I worked on calculating statistics of student grades. The program:
 - Simple data visualization (text-based bar graph)
 
 ### Peak Columns
-###### [See file](matrix-multiplication/PeakOfcolumn.java)
+[See file](peak-of-column/PeakOfcolumn.java)<br/>
 In this lab, I worked on finding the peak columns (elements that are both a maximum in their row and a minimum in their column). The program:
 1. Takes a matrix input from the user.
 2. Finds the peak columns in the matrix.
